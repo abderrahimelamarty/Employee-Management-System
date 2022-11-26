@@ -10,7 +10,7 @@ const AddEmployee = () => {
     email: "",
   });
 
-  //   const navigaye = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -23,21 +23,22 @@ const AddEmployee = () => {
     EmployeeService.saveEmployee(employee)
       .then((response) => {
         console.log(response);
+        navigate("/employeelist");
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  //   const reset = (e) => {
-  //     e.preventDefault();
-  //     setEmployee({
-  //       id: "",
-  //       firstName: "",
-  //       lastName: "",
-  //       emailId: "",
-  //     });
-  //   };
+  const reset = (e) => {
+    e.preventDefault();
+    setEmployee({
+      id: "",
+      firstName: "",
+      lastName: "",
+      email: "",
+    });
+  };
 
   return (
     <div className="flex max-w-2xl mx-auto shadow border-b">
@@ -76,7 +77,7 @@ const AddEmployee = () => {
           <input
             type="email"
             name="email"
-            value={employee.emailId}
+            value={employee.email}
             onChange={(e) => handleChange(e)}
             className="h-10 w-96 border mt-2 px-2 py-2"
           ></input>
@@ -90,7 +91,7 @@ const AddEmployee = () => {
             Save
           </button>
           <button
-            // onClick={reset}
+            onClick={reset}
             className="rounded text-white font-semibold bg-red-400 hover:bg-red-700 py-2 px-6"
           >
             Clear
