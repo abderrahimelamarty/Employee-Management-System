@@ -3,6 +3,7 @@ import AddEmployee from "./Components/AddEmployee";
 import NavBar from "./Components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EmployeeList from "./Components/EmployeeList";
+import UpdateEmployee from "./Components/UpdateEmployee";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<EmployeeList />}></Route>
           <Route path="/employeelist" element={<EmployeeList />}></Route>
           <Route path="/addEmployee" element={<AddEmployee />}></Route>
+          <Route path="/editEmployee/:id" element={<UpdateEmployee />} />
         </Routes>
       </BrowserRouter>
     </>
